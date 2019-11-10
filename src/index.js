@@ -40,16 +40,27 @@ const genres = (state = [], action) => {
     }
 }
 
-// GET SAGA
+// Fetches all data from movies table in database
 function* getMovies(action) {
     try
     {const moviesResponse = yield axios.get('/movies');
     yield put({ type: 'SET_MOVIES', payload: moviesResponse.data });
      console.log('getMovies was hit with action:', action);
     } catch(error){
-        console.log('error fetching plants', error);
+        console.log('error fetching movies', error);
     }
-}
+} // End getMovies
+
+// Fetches all data from genres table in database
+function* getGenres(action) {
+    try
+    {const genresResponse = yield axios.get('/genres');
+    yield put({ type: 'SET_GENRES', payload: genresResponse.data });
+     console.log('getGenres was hit with action:', action);
+    } catch(error){
+        console.log('error fetching genres', error);
+    }
+} // End getGenres
 
 // Create one store that all components can use
 const storeInstance = createStore(

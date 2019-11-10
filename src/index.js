@@ -43,9 +43,9 @@ const genres = (state = [], action) => {
 // GET SAGA
 function* getMovies(action) {
     try
-    {const plantResponse = yield axios.get('/api/plant');
-    yield put({ type: 'ADD_PLANT', payload: plantResponse.data });
-     console.log('firstPlant was hit with action:', action);
+    {const moviesResponse = yield axios.get('/movies');
+    yield put({ type: 'SET_MOVIES', payload: moviesResponse.data });
+     console.log('getMovies was hit with action:', action);
     } catch(error){
         console.log('error fetching plants', error);
     }

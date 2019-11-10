@@ -2,12 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 class MovieItem extends Component {
-
-    // runs function to get movies from database on component ready
-    renderMovies = () => {
-        this.props.dispatch({ type: 'GET_MOVIES' });
-    }
-
     render() {
         return (
             <>

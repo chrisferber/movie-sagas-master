@@ -14,8 +14,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <p>Empty Page</p>
         <Router>
+        <div className="links">
+            <Link to="/">Home</Link>
+            <Link to="/details">Details</Link>
+            <Link to="/edit">Edit</Link>
+          </div>
           <div className="routes">
             <Route exact path="/">
               <Home />
@@ -27,13 +31,7 @@ class App extends Component {
               <Edit />
             </Route>
           </div>
-          <div className="links">
-            <Link to="/">Home</Link>
-            <Link to="/details">Details</Link>
-            <Link to="/edit">Edit</Link>
-          </div>
         </Router>
-        <button onClick={this.testAxiosConnect}>Test</button>
       </div>
     );
   }

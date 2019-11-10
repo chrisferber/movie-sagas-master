@@ -17,7 +17,9 @@ class Home extends Component {
         return (
             <>
                 <div>
+                    <h1>
                     Home Page
+                    </h1>
                 </div>
                 <ul>
                 {this.props.reduxState.movies.map((movie) => {

@@ -11,10 +11,6 @@ import Home from '../Home/Home';
 class App extends Component {
   // Renders the entire app on the DOM
 
-  testAxiosConnect = () => {
-    this.props.dispatch({ type: 'GET_MOVIES' });
-  }
-
   render() {
     return (
       <div className="App">

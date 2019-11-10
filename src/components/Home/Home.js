@@ -1,12 +1,32 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import MovieItem from '../MovieItem/MovieItem';
 
 class Home extends Component {
+
+    // runs function to get movies from database on component ready
+    componentDidMount() {
+        this.renderMovies();
+    }
+
+    renderMovies = () => {
+        this.props.dispatch({ type: 'GET_MOVIES' });
+    }
+
     render() {
         return (
-            <div>
-               Home Page
-            </div>
+            <>
+                <div>
+                    Home Page
+                </div>
+                <ul>
+                {this.props.reduxState.movies.map((movie) => {
+                    return (
+                        <MovieItem key={movie.id} movie={movie} />
+                    );
+                })}
+            </ul>
+            </>
         );
     }
 }

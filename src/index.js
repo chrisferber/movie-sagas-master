@@ -9,10 +9,12 @@ import { Provider } from 'react-redux';
 import logger from 'redux-logger';
 // Import saga middleware
 import createSagaMiddleware from 'redux-saga';
+import { takeEvery, put } from 'redux-saga/effects';
+import axios from 'axios';
 
 // Create the rootSaga generator function
 function* rootSaga() {
-
+    yield takeEvery('GET_MOVIES', getMovies);
 }
 
 // Create sagaMiddleware
@@ -35,6 +37,17 @@ const genres = (state = [], action) => {
             return action.payload;
         default:
             return state;
+    }
+}
+
+// GET SAGA
+function* getMovies(action) {
+    try
+    {const plantResponse = yield axios.get('/api/plant');
+    yield put({ type: 'ADD_PLANT', payload: plantResponse.data });
+     console.log('firstPlant was hit with action:', action);
+    } catch(error){
+        console.log('error fetching plants', error);
     }
 }
 

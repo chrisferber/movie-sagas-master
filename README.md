@@ -13,5 +13,5 @@ Additional README details can be found [here](https://github.com/PrimeAcademy/gi
 - [X] Create a database named saga_movies_weekend
     - [X] Run the queries from database.sql on the saga_movies_weekend database.
     - [X] You will need to create the junction table between the movies and genres tables!
-- npm install and import all necessary packages
+- [X] npm install and import all necessary packages
 - 

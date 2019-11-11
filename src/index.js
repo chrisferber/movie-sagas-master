@@ -53,7 +53,7 @@ const moviesGenres = (state = [], action) => {
 }
 
 // Used to store the relational data from movies_genres table
-const currentMovie = (state = [], action) => {
+const currentMovie = (state = {}, action) => {
         if (action.type === 'CURRENT_MOVIE') {
             return action.payload;
         }

@@ -15,27 +15,34 @@ class Details extends Component {
     }
 
     getMoviesGenres = () => {
-        this.props.dispatch({type: 'GET_MOVIES_GENRES'});
+        this.props.dispatch({ type: 'GET_MOVIES_GENRES' });
     }
 
     render() {
         return (
             <>
-            <div>
-               Details Page
-            </div>
-            <Router>
-                <Link to="/">Go Back</Link>
-            </Router>
-            <ul>
+                <Router>
+                    <Link to="/">Go Back</Link>
+                </Router>
+                {/* <ul>
                 {this.props.reduxState.genres.map((genre) => {
                     return (
                         <GenreItem key={genre.genres_id} genre={genre} />
                     );
                 })}
-
+                <li>
+                    {this.props.reduxState.currentMovie.title}
+                </li>
             </ul>
-            <pre>{JSON.stringify(this.props.reduxState, null, 2)}</pre>
+            <pre>{JSON.stringify(this.props.reduxState, null, 2)}</pre> */}
+                <h1>
+                    {this.props.reduxState.currentMovie.title}
+                </h1>
+                <div>
+                    <p>
+                        {this.props.reduxState.currentMovie.description}
+                    </p>
+                </div>
             </>
         );
     }

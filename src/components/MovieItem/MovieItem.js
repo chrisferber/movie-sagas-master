@@ -13,7 +13,7 @@ class MovieItem extends Component {
                         <img src={this.props.movie.poster} height="300px" width="300px" />
                     </div>
                     </Link>
-                    </Router>
+                    </Router> 
                     <div>
                         <h2>
                             {this.props.movie.title}

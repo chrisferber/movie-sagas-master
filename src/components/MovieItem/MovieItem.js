@@ -15,7 +15,6 @@ class MovieItem extends Component {
                         </h2>
                     </div>
                     <div>{this.props.movie.description}</div>
-
                 </li>
             </>
         );

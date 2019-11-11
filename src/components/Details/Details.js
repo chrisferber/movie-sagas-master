@@ -6,10 +6,15 @@ class Details extends Component {
 
     componentDidMount() {
         this.renderGenres();
+        this.getMoviesGenres();
     }
 
     renderGenres = () => {
         this.props.dispatch({ type: 'GET_GENRES' });
+    }
+
+    getMoviesGenres = () => {
+        this.props.dispatch({type: 'GET_MOVIES_GENRES'});
     }
 
     render() {

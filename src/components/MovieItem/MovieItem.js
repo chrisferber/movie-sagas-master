@@ -11,7 +11,7 @@ class MovieItem extends Component {
     }
 
     handleImageClick = () => {
-        console.log(this.props.reduxState.movies);
+        this.props.dispatch({type:'CURRENT_MOVIE', payload: this.props.movie})
 
         this.setState({
             toDetails: true,

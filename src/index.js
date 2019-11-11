@@ -52,13 +52,21 @@ const moviesGenres = (state = [], action) => {
     }
 }
 
-// Used to store the relational data from movies_genres table
+// Used to store the user selected movie data to render on details page
 const currentMovie = (state = {}, action) => {
         if (action.type === 'CURRENT_MOVIE') {
             return action.payload;
         }
         return state;
     }
+
+// Used to store the genres of user selected movie
+const currentGenre = (state = {}, action) => {
+    if (action.type === 'CURRENT_GENRE') {
+        return action.payload;
+    }
+    return state;
+}
 
 // Fetches all data from movies table in database
 function* getMovies(action) {
@@ -100,6 +108,7 @@ const storeInstance = createStore(
         genres,
         moviesGenres,
         currentMovie,
+        currentGenre,
     }),
     // Add sagaMiddleware to our store
     applyMiddleware(sagaMiddleware, logger),

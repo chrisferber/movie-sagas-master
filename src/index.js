@@ -106,7 +106,7 @@ function* getMoviesGenres(action) {
 function* editCurrentMovie(action) {
     try
     {const editCurrentMovieResponse = yield axios.put('/edit/movie', action.payload);
-    yield put({ type: 'SET_MOVIES', payload: editCurrentMovieResponse });
+    yield put({ type: 'GET_MOVIES' });
      console.log('editCurrentMovie was hit with action:', action);
     } catch(error){
         console.log('error editing currentMovie', error);

@@ -32,13 +32,13 @@ class Details extends Component {
                 {/* <ul>
                 {this.props.reduxState.genres.map((genre) => {
                     return (
-                        <GenreItem key={genre.genres_id} genre={genre} />
+                        <GenreItem key={} genre={genre} />
                     );
                 })}
                 <li>
                     {this.props.reduxState.currentMovie.title}
                 </li>
-            </ul>
+            </ul> {/*  */}
             <pre>{JSON.stringify(this.props.reduxState, null, 2)}</pre> */}
                 <h1>
                     {this.props.reduxState.currentMovie.title}
@@ -48,6 +48,13 @@ class Details extends Component {
                         {this.props.reduxState.currentMovie.description}
                     </p>
                 </div>
+                {/* <div>
+                    <ul>
+                        <li>
+
+                        </li>
+                    </ul>
+                </div> */}
             </>
         );
     }

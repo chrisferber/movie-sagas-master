@@ -5,10 +5,12 @@ const router = express.Router();
 
 router.get('/', (req, res) => {
   const queryText =
-    `SELECT * FROM "movies_genres"
-    INNER JOIN "movies" ON "movies"."id" = "movies_genres"."movies_id"
-    WHERE "movies_genres"."movies_id" = "movies"."id"
-    ORDER BY "movies"."id";`;
+    // `SELECT * FROM "movies_genres"
+    // INNER JOIN "movies" ON "movies"."id" = "movies_genres"."movies_id"
+    // WHERE "movies_genres"."movies_id" = "movies"."id"
+    // ORDER BY "movies"."id";`;
+
+    'SELECT * FROM "movies"';
 
   pool.query(queryText)
     .then((result) => { res.send(result.rows); })

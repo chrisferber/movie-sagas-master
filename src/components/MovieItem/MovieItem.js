@@ -1,14 +1,19 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { HashRouter as Router, Route, Link } from 'react-router-dom';
 
 class MovieItem extends Component {
     render() {
         return (
             <>
                 <li>
+                    <Router>
+                    <Link to="/details">
                     <div>
                         <img src={this.props.movie.poster} height="300px" width="300px" />
                     </div>
+                    </Link>
+                    </Router> 
                     <div>
                         <h2>
                             {this.props.movie.title}

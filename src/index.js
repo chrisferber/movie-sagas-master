@@ -17,6 +17,7 @@ function* rootSaga() {
     yield takeEvery('GET_MOVIES', getMovies);
     yield takeEvery('GET_GENRES', getGenres);
     yield takeEvery('GET_MOVIES_GENRES', getMoviesGenres);
+    yield takeEvery('EDIT_MOVIE', editCurrentMovie);
 }
 
 // Create sagaMiddleware
@@ -100,6 +101,17 @@ function* getMoviesGenres(action) {
         console.log('error fetching movies_genres', error);
     }
 } // End getMoviesGenres
+
+// Edits title and description of current movie 
+function* editCurrentMovie(action) {
+    try
+    {const editCurrentMovieResponse = yield axios.put('/edit/movie', action.payload);
+    yield put({ type: 'SET_MOVIES', payload: editCurrentMovieResponse });
+     console.log('editCurrentMovie was hit with action:', action);
+    } catch(error){
+        console.log('error editing currentMovie', error);
+    }
+} // End editCurrentMovie
 
 // Create one store that all components can use
 const storeInstance = createStore(

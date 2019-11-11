@@ -7,24 +7,31 @@ class Edit extends Component {
     state = {
         title: '',
         description: '',
+        editId: null,
     }
 
     handleTitleChange = (event) => {
         this.setState({
             ...this.state,
+            editId: this.props.reduxState.currentMovie.id,
             title: event.target.value,
-        })
+        });
     }
 
     handleDescriptionChange = (event) => {
         this.setState({
             ...this.state,
+            editId: this.props.reduxState.currentMovie.id,
             description: event.target.value,
-        })
+        });
     }
 
     handleSave = () => {
-        this.props.dispatch({ type: 'EDIT_MOVIE', payload: this.state })
+        this.setState({
+            ...this.state,
+            editId: this.props.reduxState.currentMovie.id,
+        });
+        this.props.dispatch({ type: 'EDIT_MOVIE', payload: this.state });
     }
 
     render() {

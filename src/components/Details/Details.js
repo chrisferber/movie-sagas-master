@@ -20,6 +20,10 @@ class Details extends Component {
         this.props.dispatch({ type: 'GET_MOVIES_GENRES' });
     }
 
+    getCurrentMovie = () => {
+        this.props.dispatch({ type: 'CURRENT_MOVIE', payload: this.props.reduxState.currentMovie.id });
+    }
+
     render() {
         return (
             <>

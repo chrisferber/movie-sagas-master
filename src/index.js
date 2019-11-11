@@ -17,6 +17,7 @@ function* rootSaga() {
     yield takeEvery('GET_MOVIES', getMovies);
     yield takeEvery('GET_GENRES', getGenres);
     yield takeEvery('GET_MOVIES_GENRES', getMoviesGenres);
+    yield takeEvery('GET_CURRENT_MOVIE', getCurrentMovie);
     yield takeEvery('EDIT_MOVIE', editCurrentMovie);
 }
 
@@ -112,6 +113,16 @@ function* editCurrentMovie(action) {
         console.log('error editing currentMovie', error);
     }
 } // End editCurrentMovie
+
+function* getCurrentMovie(action) {
+    try
+    {const currentMoviesResponse = yield axios.get('/current', action.payload);
+    yield put({ type: 'CURRENT_MOVIE', payload: currentMoviesResponse.data });
+     console.log('getCurrentMovie was hit with action:', action);
+    } catch(error){
+        console.log('error fetching current movie', error);
+    }
+}
 
 // Create one store that all components can use
 const storeInstance = createStore(

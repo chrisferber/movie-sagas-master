@@ -5,9 +5,12 @@ const router = express.Router();
 
 router.get('/', (req, res) => {
   const queryText =
-    'SELECT * FROM "movies"';
+    `SELECT * FROM "movies"
+    WHERE "id" = $1`;
 
-  pool.query(queryText)
+    const queryValue = req.body;
+
+  pool.query(queryText, queryValue)
     .then((result) => { res.send(result.rows); })
     .catch((err) => {
       console.log('Error completing SELECT movie query', err);

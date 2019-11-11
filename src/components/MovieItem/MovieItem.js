@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { HashRouter as Router, Route, Link } from 'react-router-dom';
+import { HashRouter as Router, Link } from 'react-router-dom';
 
 class MovieItem extends Component {
     render() {
@@ -10,7 +10,7 @@ class MovieItem extends Component {
                     <Router>
                     <Link to="/details">
                     <div>
-                        <img src={this.props.movie.poster} height="300px" width="300px" />
+                        <img src={this.props.movie.poster} height="300px" width="300px" alt=""/>
                     </div>
                     </Link>
                     </Router> 

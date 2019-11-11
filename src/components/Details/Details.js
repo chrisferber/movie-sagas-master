@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import GenreItem from '../GenreItem/GenreItem';
+import { HashRouter as Router, Link } from 'react-router-dom';
 
 class Details extends Component {
 
@@ -23,13 +24,18 @@ class Details extends Component {
             <div>
                Details Page
             </div>
+            <Router>
+                <Link to="/">Go Back</Link>
+            </Router>
             <ul>
                 {this.props.reduxState.genres.map((genre) => {
                     return (
                         <GenreItem key={genre.genres_id} genre={genre} />
                     );
                 })}
+
             </ul>
+            <pre>{JSON.stringify(this.props.reduxState, null, 2)}</pre>
             </>
         );
     }

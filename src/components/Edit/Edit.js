@@ -32,6 +32,7 @@ class Edit extends Component {
             editId: this.props.reduxState.currentMovie.id,
         });
         this.props.dispatch({ type: 'EDIT_MOVIE', payload: this.state });
+        // this.props.dispatch({ type: 'CURRENT_MOVIE'});
     }
 
     render() {

@@ -12,6 +12,8 @@ class Details extends Component {
 
     renderGenres = () => {
         this.props.dispatch({ type: 'GET_GENRES' });
+
+
     }
 
     getMoviesGenres = () => {
@@ -23,7 +25,7 @@ class Details extends Component {
             <>
                 <Router>
                     <button>
-                    <Link to="/">Go Back</Link>
+                        <Link to="/">Go Back</Link>
                     </button>
                     <button>
                         <Link to="/edit">Edit</Link>
@@ -38,23 +40,25 @@ class Details extends Component {
                 <li>
                     {this.props.reduxState.currentMovie.title}
                 </li>
-            </ul> {/*  */}
+            </ul>
             <pre>{JSON.stringify(this.props.reduxState, null, 2)}</pre> */}
-                <h1>
-                    {this.props.reduxState.currentMovie.title}
-                </h1>
+                <div>
+                    <h1>
+                        {this.props.reduxState.currentMovie.title}
+                    </h1>
+                </div>
+                <div>
+                    <h3>Genres:</h3>
+                    <ul>
+                        <GenreItem />
+                    </ul>
+                </div>
                 <div>
                     <p>
                         {this.props.reduxState.currentMovie.description}
                     </p>
                 </div>
-                {/* <div>
-                    <ul>
-                        <li>
 
-                        </li>
-                    </ul>
-                </div> */}
             </>
         );
     }

@@ -15,11 +15,6 @@ class App extends Component {
     return (
       <div className="App">
         <Router>
-        <div className="links">
-            <Link to="/">Home</Link>
-            <Link to="/details">Details</Link>
-            <Link to="/edit">Edit</Link>
-          </div>
           <div className="routes">
             <Route exact path="/">
               <Home />

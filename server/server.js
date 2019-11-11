@@ -6,6 +6,7 @@ const port = process.env.PORT || 5000;
 const movieRouter = require('./routes/movie.router');
 const genreRouter = require('./routes/genre.router');
 const movieGenreRouter = require('./routes/movie.genre.router');
+const editRouter = require('./routes/edit.movie.router');
 
 /** ---------- MIDDLEWARE ---------- **/
 app.use(bodyParser.json()); // needed for angular requests
@@ -15,6 +16,7 @@ app.use(express.static('build'));
 app.use('/movies', movieRouter);
 app.use('/genres', genreRouter);
 app.use('/movies_genres', movieGenreRouter);
+app.use(`/edit/movie`, editRouter);
 
 /** ---------- START SERVER ---------- **/
 app.listen(port, function () {

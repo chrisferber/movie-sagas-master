@@ -1,19 +1,39 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { HashRouter as Router, Link } from 'react-router-dom';
+import { HashRouter as Router, Link, Redirect } from 'react-router-dom';
+import Details from '../Details/Details';
 
 class MovieItem extends Component {
+
+    state = {
+        toDetails: false,
+        
+    }
+
+    handleImageClick = () => {
+        this.props.dispatch({type:'CURRENT_MOVIE', payload: this.props.movie})
+
+        this.setState({
+            toDetails: true,
+        })
+    }
+
     render() {
+
+        if (this.state.toDetails === true) {
+            return <Redirect to='/details' />
+        }
+
         return (
             <>
                 <li>
-                    <Router>
-                    <Link to="/details">
+                    {/* <Router>
+                    <Link to="/details"> */}
                     <div>
-                        <img src={this.props.movie.poster} height="300px" width="300px" alt=""/>
+                        <img onClick={this.handleImageClick} src={this.props.movie.poster} height="300px" width="300px" alt="" />
                     </div>
-                    </Link>
-                    </Router> 
+                    {/* </Link>
+                    </Router>  */}
                     <div>
                         <h2>
                             {this.props.movie.title}

@@ -22,7 +22,12 @@ class Details extends Component {
         return (
             <>
                 <Router>
+                    <button>
                     <Link to="/">Go Back</Link>
+                    </button>
+                    <button>
+                        <Link to="/edit">Edit</Link>
+                    </button>
                 </Router>
                 {/* <ul>
                 {this.props.reduxState.genres.map((genre) => {
